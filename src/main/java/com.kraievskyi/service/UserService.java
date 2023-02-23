@@ -2,7 +2,6 @@ package com.kraievskyi.service;
 
 import com.kraievskyi.dto.UserRequestDto;
 import com.kraievskyi.dto.UserResponseDto;
-
 import java.util.List;
 
 public interface UserService {

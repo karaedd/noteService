@@ -3,9 +3,8 @@ package com.kraievskyi.service.mapper;
 import com.kraievskyi.dto.ContentRequestDto;
 import com.kraievskyi.dto.ContentResponseDto;
 import com.kraievskyi.model.Content;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
+import org.springframework.stereotype.Component;
 
 @Component
 public class ContentMapper {

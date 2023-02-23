@@ -1,13 +1,12 @@
 package com.kraievskyi.model;
 
+import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Document
 @Getter
@@ -18,7 +17,7 @@ public class Content {
     @Id
     @Indexed(unique = true)
     private String id;
-    private String Note;
+    private String note;
     private long like;
     private List<String> usersWhoLiked;
 }

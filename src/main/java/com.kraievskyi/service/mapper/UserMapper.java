@@ -4,10 +4,9 @@ import com.kraievskyi.dto.UserRequestDto;
 import com.kraievskyi.dto.UserResponseDto;
 import com.kraievskyi.model.Content;
 import com.kraievskyi.model.User;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {

@@ -8,10 +8,9 @@ import com.kraievskyi.repository.ContentRepository;
 import com.kraievskyi.repository.UserRepository;
 import com.kraievskyi.service.ContentService;
 import com.kraievskyi.service.mapper.ContentMapper;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ContentServiceImpl implements ContentService {
@@ -20,12 +19,13 @@ public class ContentServiceImpl implements ContentService {
     private final UserRepository userRepository;
     private final ContentMapper contentMapper;
 
-    public ContentServiceImpl(ContentRepository contentRepository, UserRepository userRepository, ContentMapper contentMapper) {
+    public ContentServiceImpl(ContentRepository contentRepository,
+                              UserRepository userRepository,
+                              ContentMapper contentMapper) {
         this.contentRepository = contentRepository;
         this.userRepository = userRepository;
         this.contentMapper = contentMapper;
     }
-
 
     @Override
     public ContentResponseDto addContent(String userId, ContentRequestDto contentRequestDto) {
@@ -52,18 +52,17 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public ContentResponseDto updateLikes(String id, String userId) {
+    public void updateLikes(String id, String userId) {
         Content content = contentRepository.findById(id).orElseThrow();
         User user = userRepository.findById(userId).orElseThrow();
         if (!content.getUsersWhoLiked().contains(user.getId())) {
             content.getUsersWhoLiked().add(user.getId());
             content.setLike(content.getLike() + 1);
-        } else if (content.getUsersWhoLiked().contains(user.getId()) && content.getLike() > 0){
+        } else if (content.getUsersWhoLiked().contains(user.getId()) && content.getLike() > 0) {
             content.setLike(content.getLike() - 1);
             content.getUsersWhoLiked().remove(user.getId());
         }
         contentRepository.save(content);
-        return contentMapper.toContentResponseDto(content);
     }
 
     @Override

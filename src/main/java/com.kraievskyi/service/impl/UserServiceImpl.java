@@ -6,10 +6,9 @@ import com.kraievskyi.model.User;
 import com.kraievskyi.repository.UserRepository;
 import com.kraievskyi.service.UserService;
 import com.kraievskyi.service.mapper.UserMapper;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {

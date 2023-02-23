@@ -31,7 +31,7 @@ public class BasicConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests((requests) -> requests
-                .requestMatchers( new AntPathRequestMatcher("/content", "/user")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/content", "/user")).permitAll()
                         .requestMatchers(HttpMethod.PATCH,"/content/likes/{id}/{userId}")
                 .authenticated())
                 .httpBasic();

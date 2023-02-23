@@ -2,7 +2,6 @@ package com.kraievskyi.service;
 
 import com.kraievskyi.dto.ContentRequestDto;
 import com.kraievskyi.dto.ContentResponseDto;
-
 import java.util.List;
 
 public interface ContentService {
@@ -13,7 +12,7 @@ public interface ContentService {
 
     ContentResponseDto getById(String id);
 
-    ContentResponseDto updateLikes(String id, String userId);
+    void updateLikes(String id, String userId);
 
     void deleteById(String id);
 }
