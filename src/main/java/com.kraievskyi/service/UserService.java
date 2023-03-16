@@ -5,7 +5,6 @@ import com.kraievskyi.dto.UserResponseDto;
 import java.util.List;
 
 public interface UserService {
-    UserResponseDto save(UserRequestDto userRequestDto);
 
     List<UserResponseDto> getAllUsers();
 

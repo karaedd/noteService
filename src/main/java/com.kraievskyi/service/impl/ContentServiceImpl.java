@@ -39,6 +39,12 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
+    public ContentResponseDto addContentWithoutRegistration(ContentRequestDto contentRequestDto) {
+        return contentMapper.toContentResponseDto(contentRepository.save(
+                contentMapper.toModel(contentRequestDto)));
+    }
+
+    @Override
     public List<ContentResponseDto> getAllContents() {
         return contentRepository.findAllByOrderByIdDesc()
                 .stream()
@@ -67,6 +73,6 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public void deleteById(String id) {
-
+        contentRepository.deleteById(id);
     }
 }

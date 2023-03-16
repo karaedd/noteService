@@ -14,7 +14,7 @@ public class UserMapper {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
         userResponseDto.setName(user.getName());
-        userResponseDto.setLogin(user.getLogin());
+        userResponseDto.setEmail(user.getEmail());
         userResponseDto.setPassword(user.getPassword());
         userResponseDto.setContent(user.getContent()
                 .stream()
@@ -26,7 +26,7 @@ public class UserMapper {
     public User toModel(UserRequestDto userRequestDto) {
         User user = new User();
         user.setName(userRequestDto.getName());
-        user.setLogin(userRequestDto.getLogin());
+        user.setEmail(userRequestDto.getEmail());
         user.setPassword(userRequestDto.getPassword());
         user.setContent(new ArrayList<>());
         return user;

@@ -32,6 +32,13 @@ public class ContentController {
         return contentService.addContent(userId, contentRequestDto);
     }
 
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public ContentResponseDto createWithoutRegistration(
+            @RequestBody ContentRequestDto contentRequestDto) {
+        return contentService.addContentWithoutRegistration(contentRequestDto);
+    }
+
     @GetMapping
     public List<ContentResponseDto> getAll() {
         return contentService.getAllContents();

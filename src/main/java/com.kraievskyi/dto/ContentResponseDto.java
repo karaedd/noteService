@@ -1,13 +1,13 @@
 package com.kraievskyi.dto;
 
 import java.util.List;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@EqualsAndHashCode
+import lombok.*;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ContentResponseDto {
     private String id;
     private String note;

@@ -21,11 +21,6 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
 
-    @Override
-    public UserResponseDto save(UserRequestDto userRequestDto) {
-        return userMapper.toUserResponseDto(userRepository
-                .save(userMapper.toModel(userRequestDto)));
-    }
 
     @Override
     public List<UserResponseDto> getAllUsers() {
@@ -44,7 +39,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto updateUser(String id, UserRequestDto userRequestDto) {
         User user = userRepository.findById(id).orElseThrow();
         user.setName(userRequestDto.getName());
-        user.setLogin(userRequestDto.getLogin());
+        user.setEmail(userRequestDto.getEmail());
         user.setPassword(userRequestDto.getPassword());
         return userMapper.toUserResponseDto(user);
     }

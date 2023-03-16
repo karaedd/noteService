@@ -7,6 +7,7 @@ import java.util.List;
 public interface ContentService {
 
     ContentResponseDto addContent(String userId, ContentRequestDto contentRequestDto);
+    ContentResponseDto addContentWithoutRegistration(ContentRequestDto contentRequestDto);
 
     List<ContentResponseDto> getAllContents();
 
